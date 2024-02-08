@@ -19,7 +19,7 @@ public class EmpleadoControlador {
     private EmpleadoRepository empleadoRepository;
 
     //Listar todos los Empleados
-    @GetMapping("/empleados")
+    @GetMapping("/listarEmpleados")
     public List<Empleado> listarTodosLosEmpleados(){
         return empleadoRepository.findAll();
     }
