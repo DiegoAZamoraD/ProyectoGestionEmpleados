@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../../models/Empleado/empleado';
 import { EmpleadoService } from '../../Service/empleado/empleado.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-empleados',
@@ -12,7 +13,8 @@ export class ListaEmpleadosComponent implements OnInit {
   empleados: Empleado[];
 
   constructor(
-    private empleadoService:EmpleadoService
+    private empleadoService:EmpleadoService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,20 @@ export class ListaEmpleadosComponent implements OnInit {
         this.empleados = dato;
       }
     )
+  }
+
+  actualizarEmpleado(id:number){
+    this.router.navigate(['actualizar-empleado',id]);
+  }
+
+  eliminarEmpleado(id:number){
+    this.empleadoService.eliminarEmpleado(id).subscribe(
+      dato => {
+        this.obtenerListaEmpleados()
+        console.log(dato)
+      }
+      
+    );
   }
 
 }

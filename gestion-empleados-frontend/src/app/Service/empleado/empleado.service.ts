@@ -29,5 +29,23 @@ export class EmpleadoService {
     return empleadoGuardado;
   }
 
+  //Metodo que me sirve para actualizar un empleado
+  actualizarEmpleado(id:number,empleado:Empleado): Observable<Object>{
+    let empleadoActualizar:Observable<Object> = this.httpClient.put(`${this.baseURL}actualizarEmpleado/${id}`,empleado);
+    return empleadoActualizar;
+  }
+
+  //Metodo que me sirve para obtener un empleado por id
+  obtenerEmpleadoporId(id:number):Observable<Empleado>{
+    let empleado: Observable<Empleado> = this.httpClient.get<Empleado>(`${this.baseURL}empleado/${id}`);
+    return empleado;
+  }
+
+  //Metodo para eliminar un Empleado
+  eliminarEmpleado(id:number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}eliminarEmpleado/${id}`);
+  }
+
+
 
 }

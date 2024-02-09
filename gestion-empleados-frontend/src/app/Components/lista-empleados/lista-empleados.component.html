@@ -1,6 +1,7 @@
 
-
+<div class="col-md-10  offset-md-1">
     <h2 class="mt-5">Lista Empleados</h2>
+    <div class="text-center">
     <table class="table table-striped mt-3">
         <thead class="table-dark">
             <tr>
@@ -8,6 +9,7 @@
                 <th>Nombre:</th>
                 <th>Apellido:</th>
                 <th>Email:</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody >
@@ -16,7 +18,15 @@
                 <td>{{empleado.nombre}}</td>
                 <td>{{empleado.apellido}}</td>
                 <td>{{empleado.email}}</td>
+                <td>
+                    <button (click)="actualizarEmpleado(empleado.id)" class="btn btn-primary" >Editar</button>
+                    <button (click)="eliminarEmpleado(empleado.id)"  class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+                    <button  class="btn btn-success" style="margin-left : 10px">Detalles</button>
+                </td>
             </tr>
         </tbody>
     </table>
+</div>
+</div>
+   
 
