@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmpleadoService } from 'src/app/Service/empleado/empleado.service';
 import { Empleado } from 'src/app/models/Empleado/empleado';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-empleado-detalles',
@@ -23,8 +24,9 @@ export class EmpleadoDetallesComponent implements OnInit {
     this.empleadoServicio.obtenerEmpleadoporId(this.id).subscribe(
       dato => {
         this.empleado = dato;
+        Swal(`Detalles del empleado ${this.empleado.nombre}`);
       }
-    )
+    );
   }
 
 }

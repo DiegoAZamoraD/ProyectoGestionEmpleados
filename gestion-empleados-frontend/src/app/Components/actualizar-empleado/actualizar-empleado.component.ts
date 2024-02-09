@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from 'src/app/Service/empleado/empleado.service';
 import { Empleado } from 'src/app/models/Empleado/empleado';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-empleado',
@@ -27,6 +28,10 @@ export class ActualizarEmpleadoComponent implements OnInit {
 
   onSubmit(){
     this.empleadoService.actualizarEmpleado(this.id,this.empleado).subscribe(dato => {
+      if(!dato){
+        swal(`hubo un problema al actualizar el empleado ${this.empleado.nombre}`);
+      }
+      swal(`El empleado se actualizo correctamente ${this.empleado.nombre}`);
       this.irAlaListaDeEmpleados();
     },error => console.log(error));
   }

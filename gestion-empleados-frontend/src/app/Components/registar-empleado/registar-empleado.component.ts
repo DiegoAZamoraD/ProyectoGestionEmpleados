@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmpleadoService } from 'src/app/Service/empleado/empleado.service';
 import { Empleado } from 'src/app/models/Empleado/empleado';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registar-empleado',
@@ -23,9 +24,16 @@ export class RegistarEmpleadoComponent implements OnInit {
     this.empleadoService.guardarEmpleado(this.empleado).subscribe(
       dato => {
         console.log(dato)
+        if(!dato){
+          this.traerListaEmpleados()
+          Swal(`Hubo un problema al crear el empleado`);
+        }
         this.traerListaEmpleados()
+        Swal(`Se creo correctamente el empleado`);
+        
       },error => console.log(error)
-    )
+      
+    );
   }
 
   traerListaEmpleados(){
