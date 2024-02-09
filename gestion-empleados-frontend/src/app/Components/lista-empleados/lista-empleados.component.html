@@ -21,7 +21,7 @@
                 <td>
                     <button (click)="actualizarEmpleado(empleado.id)" class="btn btn-primary" >Editar</button>
                     <button (click)="eliminarEmpleado(empleado.id)"  class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
-                    <button  class="btn btn-success" style="margin-left : 10px">Detalles</button>
+                    <button  (click)="verDetallesDelEmpleado(empleado.id)" class="btn btn-success" style="margin-left : 10px">Detalles</button>
                 </td>
             </tr>
         </tbody>

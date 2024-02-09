@@ -46,4 +46,8 @@ export class ListaEmpleadosComponent implements OnInit {
     );
   }
 
+  verDetallesDelEmpleado(id:number){
+    this.router.navigate(['empledo-detalles',id])
+  }
+
 }
