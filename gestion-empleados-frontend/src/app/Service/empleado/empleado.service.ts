@@ -23,5 +23,11 @@ export class EmpleadoService {
     return empleados;
   }
 
+  //Este metodo nos sirve para registrar un empleado
+  guardarEmpleado(empleado:Empleado): Observable<Object>{  
+    let empleadoGuardado: Observable<Object> = this.httpClient.post(`${this.baseURL}guardarEmpleado`,empleado);
+    return empleadoGuardado;
+  }
+
 
 }
