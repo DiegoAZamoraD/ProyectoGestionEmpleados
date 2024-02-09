@@ -32,7 +32,7 @@ export class RegistarEmpleadoComponent implements OnInit {
     this.router.navigate(['/empleados'])
   }
 
-  onsubmit(){
+  onSubmit(){
     this.guardarEmpleado()
     console.log(this.empleado)
     
